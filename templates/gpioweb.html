@@ -15,7 +15,7 @@
  </div>
  <div class="navbar-collapse collapse">
  <ul class="nav navbar-nav">
- <li><a href="/logout">Logout</a></li>
+ <li><a href="/">Logout</a></li>
  </ul>
  </div>
  </div>
@@ -25,32 +25,20 @@
 <div class="container">
  <div class="page-header">
  <h1>Panasonic AC Controller</h1>
-	  <div id="buttons">
-	  	<br />
-      	<a id="heat" href="/heat">Heat 23 *C</a>
-		<br />
-		<br />
-		<br />
-      	<a id="cool" href="/cool">Cool 20 *C</a>
-		<br />
-		<br />
-		<br />
-		<a id="dry" href="/dry">Dry 20 *C</a>
-		<br />
-		<br />
-		<br />
-		<a id="fan" href="/fan">Fan Only</a>
-		<br />
-		<br />
-		<br />
-  	  </div>
+  	  <div class="btn-group-vertical" role="group" aria-label="...">
+		  <a role="button" class="btn btn-danger" href="/heat">Heat 23 °C</a>
+		  <a role="button" class="btn btn-primary" href="/cool">Cool 20 °C</a>
+		  <a role="button" class="btn btn-info" href="/dry">Dry 20 °C</a>
+		  <a role="button" class="btn btn-success" href="/fan">Fan Only</a>
+		</div>
+
 	  <br />
 	  <br />
-      <p id="temperature"><span style="color:#E6A22E;">Current temperature: </span><span style="color:#2ED3E6;"><b>{{ temperature }}</b></span></p>
-	  <br />
-	  <p id="message"><span style="color:#E6A22E;">Current status: </span><span style="color:#2ED3E6;"><b>{{ message }}</b></span></p>
-	  <br />
-	  <p id="time"><span style="color:#E6A22E;">Current server time: </span><span style="color:#2ED3E6;"><b>{{ time }}</b></span></p>
+	  <ul class="list-group">
+		  <li class="list-group-item">Current temperature: {{ temperature }}</li>
+		  <li class="list-group-item">Current status: {{ message }}</li>
+		  <li class="list-group-item">Current server time: {{ time }}</li>
+	  </ul>
  </div>
 </div>
 {% endblock %}
