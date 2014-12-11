@@ -1,0 +1,56 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Flasky{% endblock %}
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation">
+ <div class="container">
+ <div class="navbar-header">
+ <button type="button" class="navbar-toggle"
+ data-toggle="collapse" data-target=".navbar-collapse">
+ <span class="sr-only">Toggle navigation</span>
+ <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+ </button>
+ <a class="navbar-brand" href="/">RemoteAC</a>
+ </div>
+ <div class="navbar-collapse collapse">
+ <ul class="nav navbar-nav">
+ <li><a href="/">Logout</a></li>
+ </ul>
+ </div>
+ </div>
+</div>
+{% endblock %}
+{% block content %}
+<div class="container">
+ <div class="page-header">
+ <h1>Panasonic AC Controller</h1>
+	  <div id="buttons">
+	  	<br />
+      	<a id="heat" href="/heat">Heat 23 *C</a>
+		<br />
+		<br />
+		<br />
+      	<a id="cool" href="/cool">Cool 20 *C</a>
+		<br />
+		<br />
+		<br />
+		<a id="dry" href="/dry">Dry 20 *C</a>
+		<br />
+		<br />
+		<br />
+		<a id="fan" href="/fan">Fan Only</a>
+		<br />
+		<br />
+		<br />
+  	  </div>
+	  <br />
+	  <br />
+      <p id="temperature"><span style="color:#E6A22E;">Current temperature: </span><span style="color:#2ED3E6;"><b>{{ temperature }}</b></span></p>
+	  <br />
+	  <p id="message"><span style="color:#E6A22E;">Current status: </span><span style="color:#2ED3E6;"><b>{{ message }}</b></span></p>
+	  <br />
+	  <p id="time"><span style="color:#E6A22E;">Current server time: </span><span style="color:#2ED3E6;"><b>{{ time }}</b></span></p>
+ </div>
+</div>
+{% endblock %}
