@@ -15,8 +15,9 @@ app.secret_key = 'L54u2pY9W8nkI1CWKN7n3ivq1SPy1jnt' #random key
 
 now = datetime.datetime.now()
 timeString = now.strftime("%Y-%m-%d %H:%M")
-res = os.popen('vcgencmd measure_temp').readline()
-res=res.replace("temp=","")
+temperature_file = open("out","r")
+res= temperature_file.readline()
+temperature_file.close()
 
 def login_required(test):
     @wraps(test)
