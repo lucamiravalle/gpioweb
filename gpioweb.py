@@ -13,7 +13,13 @@ app.secret_key = 'L54u2pY9W8nkI1CWKN7n3ivq1SPy1jnt' #random key
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
-pins=[15,16,18,22]
+pins = {
+   15 : {'name' : 'coffee maker', 'state' : GPIO.LOW},
+   16 : {'name' : 'lamp', 'state' : GPIO.LOW}
+   18 : {'name' : 'coffee maker', 'state' : GPIO.LOW},
+   22 : {'name' : 'lamp', 'state' : GPIO.LOW}
+
+   }
 
 now = datetime.datetime.now()
 timeString = now.strftime("%Y-%m-%d %H:%M")
@@ -27,10 +33,8 @@ for pin in pins:
     GPIO.output(pin, GPIO.LOW)
 
 def getGpioState():
-    i=1
     for pin in pins:
-        pins[i]['state']= GPIO.input(pin)
-        i=i+1
+        pins[pin]['state']= GPIO.input(pin)
 
 
 def login_required(test):
