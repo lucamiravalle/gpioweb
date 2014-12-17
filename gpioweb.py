@@ -15,7 +15,7 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 pins = {
    15 : {'name' : 'coffee maker', 'state' : GPIO.LOW},
-   16 : {'name' : 'lamp', 'state' : GPIO.LOW}
+   16 : {'name' : 'lamp', 'state' : GPIO.LOW},
    18 : {'name' : 'coffee maker', 'state' : GPIO.LOW},
    22 : {'name' : 'lamp', 'state' : GPIO.LOW}
 
