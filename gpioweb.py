@@ -11,13 +11,25 @@ bootstrap = Bootstrap(app)
 
 app.secret_key = 'L54u2pY9W8nkI1CWKN7n3ivq1SPy1jnt' #random key
 
-
+GPIO.setmode(GPIO.BOARD)
+GPIO.setwarnings(False)
+pins=[15,16,18,22]
 
 now = datetime.datetime.now()
 timeString = now.strftime("%Y-%m-%d %H:%M")
 temperature_file = open("out","r")
 res= temperature_file.readline()
 temperature_file.close()
+
+#initialize all the pins selected as OUTPUT and LOW
+for pin in pins:
+    GPIO.setup(pin, GPIO.OUT)
+    GPIO.output(pin, GPIO.LOW)
+
+def getGpioState():
+    for pin in pins:
+        pins[pin]['state']= GPIO.input(pin)
+
 
 def login_required(test):
     @wraps(test)
@@ -44,6 +56,15 @@ def home():
         'temperature' : res
     }
     return render_template('gpioweb.html', **templateData)
+
+@app.route("/gpio")
+@login_required
+def gpioHandler():
+    getGpioState()
+    templateData ={
+        'pins' :pins
+    }
+    return render_template('gpio.html', **templateData)
    
 @app.route('/login', methods=['GET', 'POST'])
 def login():
