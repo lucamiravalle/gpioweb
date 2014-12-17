@@ -71,6 +71,31 @@ def gpioHandler():
         'pins' :pins
     }
     return render_template('gpio.html', **templateData)
+
+@app.route("/<action>/<changePin>")
+@login_required
+def onChangeGpioState(action, changePin):
+   changePin = int(changePin)
+   deviceName = pins[changePin]['name']
+   if action == "on":
+      GPIO.output(changePin, GPIO.HIGH)
+      message = "Turned " + deviceName + " on."
+   if action == "off":
+      GPIO.output(changePin, GPIO.LOW)
+      message = "Turned " + deviceName + " off."
+   if action == "toggle":
+      GPIO.output(changePin, not GPIO.input(changePin))
+      message = "Toggled " + deviceName + "."
+      
+   for pin in pins:
+      pins[pin]['state'] = GPIO.input(pin)
+
+   templateData = {
+      'message' : message, 
+      'pins' : pins
+   }
+
+   return render_template('gpio.html', **templateData)
    
 @app.route('/login', methods=['GET', 'POST'])
 def login():
