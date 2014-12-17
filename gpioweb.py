@@ -27,8 +27,10 @@ for pin in pins:
     GPIO.output(pin, GPIO.LOW)
 
 def getGpioState():
+    i=1
     for pin in pins:
-        pins[pin]['state']= GPIO.input(pin)
+        pins[i]['state']= GPIO.input(pin)
+        i=i+1
 
 
 def login_required(test):
