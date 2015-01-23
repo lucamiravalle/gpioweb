@@ -14,10 +14,10 @@ app.secret_key = 'L54u2pY9W8nkI1CWKN7n3ivq1SPy1jnt' #random key
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 pins = {
-   15 : {'name' : 'coffee maker', 'state' : GPIO.HIGH},
-   16 : {'name' : 'lamp', 'state' : GPIO.HIGH},
-   18 : {'name' : 'coffee maker', 'state' : GPIO.HIGH},
-   22 : {'name' : 'lamp', 'state' : GPIO.HIGH}
+   15 : {'name' : '1', 'state' : GPIO.HIGH},
+   16 : {'name' : '2', 'state' : GPIO.HIGH},
+   18 : {'name' : '3', 'state' : GPIO.HIGH},
+   22 : {'name' : '4', 'state' : GPIO.HIGH}
 
    }
 
