@@ -5,5 +5,4 @@
 cd /
 cd home/pi/gpioweb
 sudo python gpioweb.py & 
-sudo ./RFSniffer &
 cd /
