@@ -72,6 +72,12 @@ def gpioHandler():
     }
     return render_template('gpio.html', **templateData)
 
+@app.route("/webcam")
+@login_required
+def renderWebcam():
+    #do something to aquire a new image or something else
+    return render_template('webcam.html')
+
 @app.route("/<action>/<changePin>")
 @login_required
 def onChangeGpioState(action, changePin):
