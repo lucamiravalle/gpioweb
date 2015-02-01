@@ -26,21 +26,8 @@
 {% block content %}
 <div class="container">
  <div class="page-header">
- <h1>Panasonic AC Controller</h1>
-  	  <div class="btn-group-vertical" role="group" aria-label="...">
-		  <a role="button" class="btn btn-danger" href="/heat">Heat 23 °C</a>
-		  <a role="button" class="btn btn-primary" href="/cool">Cool 20 °C</a>
-		  <a role="button" class="btn btn-info" href="/dry">Dry 20 °C</a>
-		  <a role="button" class="btn btn-success" href="/fan">Fan Only</a>
-		</div>
-
-	  <br />
-	  <br />
-	  <ul class="list-group">
-		  <li class="list-group-item">Current temperature: {{ temperature }}</li>
-		  <li class="list-group-item">Current status: {{ message }}</li>
-		  <li class="list-group-item">Current server time: {{ time }}</li>
-	  </ul>
+ <h1>Webcam</h1>
+  	  <P><img src="{{ url_for('static',filename="images/test.jpg")}}"></P>
  </div>
 </div>
 {% endblock %}
